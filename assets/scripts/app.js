@@ -25,11 +25,13 @@ function writeToLog(operationIdentifier, prevResult, operationNumber, newResult)
 }
 
 function calculateResult(calculationType) {
+  const num = getUserNumberInput();
   if (
     calculationType !== 'ADD' &&
     calculationType !== 'SUBTRACT' &&
     calculationType !== 'MULTIPLY' && 
-    calculationType !== 'DIVIDE'
+    calculationType !== 'DIVIDE' ||
+    !num
   ) {
     return;
   }
