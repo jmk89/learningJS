@@ -158,10 +158,10 @@ function printLogHandler() {
   //   console.log('---------------------------');
   // }
   let j = 0;
-  while (j < 3) {
+  do {
     console.log('--------------------');
     j++;
-  }
+  } while (j < 3);
 
   let i = 0;
   //for-of loop
