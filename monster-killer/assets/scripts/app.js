@@ -154,9 +154,15 @@ function healPlayerHandler() {
 
 function printLogHandler() {
   //classic for loop
-  for (let i = 0; i < battlelog.length; i++) {
-    console.log('---------------------------');
+  // for (let i = 0; i < battlelog.length; i++) {
+  //   console.log('---------------------------');
+  // }
+  let j = 0;
+  while (j < 3) {
+    console.log('--------------------');
+    j++;
   }
+
   let i = 0;
   //for-of loop
   for (const logEntry of battlelog) {
