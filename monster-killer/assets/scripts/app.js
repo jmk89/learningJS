@@ -11,14 +11,20 @@ const LOG_EVENT_MONSTER_ATTACK = 'MONSTER_ATTACK';
 const LOG_EVENT_PLAYER_HEAL = 'PLAYER_HEAL';
 const LOG_EVENT_GAME_OVER = 'GAME_OVER';
 
-const enteredValue = prompt('Maximum life?', '100');
-
-let chosenMaxLife = parseInt(enteredValue);
 let battlelog = [];
 let lastLoggedEntry;
 
-if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) {
-  chosenMaxLife = 100;
+let chosenMaxLife = getMaxLifeValues();
+
+function getMaxLifeValues() {
+  const enteredValue = prompt('Maximum life?', '100');
+
+  //parseInt generates NaN upon failure rather than generate error
+  const parsedValue = parseInt(enteredValue);
+  if (isNaN(parsedValue) || parsedValue <= 0) {
+    throw {message: 'Invalid user input, not a number'};
+  }
+  return parsedValue;
 }
 
 let currentMonsterHealth = chosenMaxLife;
@@ -159,7 +165,7 @@ function printLogHandler() {
   //   console.log('---------------------------');
   // }
   let j = 0;
-  outerWhile :do {
+  outerWhile: do {
     console.log('outer', j);
     innerFor: for (let k = 0; k < 5; k++) {
       if (k === 3) {
@@ -173,7 +179,7 @@ function printLogHandler() {
   let i = 0;
   //for-of loop
   for (const logEntry of battlelog) {
-    if (!lastLoggedEntry && lastLoggedEntry !== 0 || lastLoggedEntry < i) {
+    if ((!lastLoggedEntry && lastLoggedEntry !== 0) || lastLoggedEntry < i) {
       console.log(`#${i}`);
       //for-in loop
       for (const key in logEntry) {
