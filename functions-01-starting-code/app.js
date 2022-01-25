@@ -12,4 +12,7 @@ const start = function() {
 
 // person.greet();
 
-startGameBtn.addEventListener('click', start);
+//anonymous function
+startGameBtn.addEventListener('click', function() {
+  console.log('Game is starting...');
+});
