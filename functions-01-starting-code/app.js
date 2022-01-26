@@ -70,3 +70,28 @@ startGameBtn.addEventListener('click', () => {
   alert(message);
   gameIsRunning = false;
 });
+
+
+//not related to game
+//using rest operator (looks like spread operator)
+const sumUp = (...numbers) => {
+  let sum = 0;
+  for (const num of numbers) {
+    sum += num;
+  }
+  return sum;
+}
+
+//another way of using rest operator
+//"arguments" is a reserved js keyword, acts like array
+//old way, don't use
+const subtractUp = function () {
+  let sum = 0;
+  for (const num of arguments) {
+    sum -= num;
+  }
+  return sum;
+}
+
+console.log(sumUp(1, 5, 10, -3, 6, 10));
+console.log(subtractUp(1, 5, 10, -3, 6, 10));
