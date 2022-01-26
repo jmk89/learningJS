@@ -17,7 +17,7 @@ const getPlayerChoice = () => {
   ).toUpperCase();
   if (selection !== ROCK && selection !== PAPER && selection !== SCISSORS) {
     alert(`Invalid choice, we chose ${DEFAULT_USER_CHOICE} for you`);
-    return DEFAULT_USER_CHOICE;
+    return;
   }
   return selection;
 };
@@ -35,7 +35,7 @@ const getComputerChoice = () => {
 
 //switching to arrow function instead of anon func
 //using more compact format for arrow func, no braces, no return stmt
-const getWinner = (cChoice, pChoice) =>
+const getWinner = (cChoice, pChoice = DEFAULT_USER_CHOICE) =>
   cChoice === pChoice
     ? RESULT_DRAW
     : (cChoice === ROCK && pChoice === PAPER) ||
@@ -52,8 +52,14 @@ startGameBtn.addEventListener('click', () => {
   console.log('Game is starting...');
   const playerSelection = getPlayerChoice();
   const computerSelection = getComputerChoice();
-  const winner = getWinner(computerSelection, playerSelection);
-  let message = `You picked ${playerSelection}, computer picked ${computerSelection}, `;
+  let winner;
+  if (playerSelection) {
+    winner = getWinner(computerSelection, playerSelection);
+  } else {
+    winner = getWinner(computerSelection);
+  }
+  
+  let message = `You picked ${playerSelection || DEFAULT_USER_CHOICE}, computer picked ${computerSelection}, `;
   if (winner === RESULT_DRAW) {
     message += 'its a draw'
   } else if (winner === RESULT_PLAYER_WINS) {
