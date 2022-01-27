@@ -74,7 +74,7 @@ startGameBtn.addEventListener('click', () => {
 
 //not related to game
 //using rest operator (looks like spread operator)
-const sumUp = (...numbers) => {
+const sumUp = (resultHandler, ...numbers) => {
   const validateNumber = (number) => {
     return isNaN(number) ? 0 : number;
   };
@@ -83,7 +83,7 @@ const sumUp = (...numbers) => {
   for (const num of numbers) {
     sum += validateNumber(num);
   }
-  return sum;
+  resultHandler(sum);
 }
 
 //another way of using rest operator
@@ -97,5 +97,9 @@ const subtractUp = function () {
   return sum;
 }
 
-console.log(sumUp(1, 5, 10, -3, 6, 10));
+const showResult = (result) => {
+  alert('The result after adding all numbers is: ' + result);
+};
+
+sumUp(showResult, 1, 5, 10, -3, 6, 10);
 console.log(subtractUp(1, 5, 10, -3, 6, 10));
