@@ -19,10 +19,9 @@ const li = document.querySelector('li:last-of-type');
 li.textContent = li.textContent + ' (changed)'
 
 const body = document.body;
-body.query
 
 const listItemElements = document.querySelectorAll('li');
 
-for (const listItem of listItemElements) {
-  console.dir(listItem)
-}
+// for (const listItem of listItemElements) {
+//   console.dir(listItem)
+// }
