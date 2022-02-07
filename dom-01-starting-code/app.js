@@ -1,5 +1,15 @@
-// a way to get the ul
-const ul = document.body.firstElementChild.nextElementSibling
-const firstLi = ul.firstElementChild;
+const section = document.querySelector('section');
+const button = document.querySelector('button');
+button.addEventListener('click', () => {
+  // if (section.className === 'red-bg visible') {
+  //   section.className = 'red-bg invisible';
+  // } else {
+  //   section.className = 'red-bg visible';
+  // }
+  
+  section.classList.toggle('visible');
+  section.classList.toggle('invisible');
+});
 
-console.log(firstLi)
+section.style.backgroundColor = 'lightblue';
+// section.className = '';
