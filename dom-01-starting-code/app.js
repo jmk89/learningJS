@@ -11,3 +11,7 @@ list.firstElementChild.replaceWith(anotherLi)
 
 const secondLi = list.children[1];
 secondLi.insertAdjacentElement('afterend', newLi)
+
+//true makes it a deep clone
+const clone = newLi.cloneNode(true);
+list.append(clone)
