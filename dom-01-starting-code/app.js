@@ -1,4 +1,8 @@
 const list = document.querySelector('ul');
+//note that queryselector is not a "live" node list, rather a snapshot / static
+const listItems = document.querySelectorAll('li');
+//getElementsByTagName is a live node list, will include most recent updates
+const listItems2 = list.getElementsByTagName('li');
 const newLi = document.createElement('li');
 const anotherLi = document.createElement('li');
 
