@@ -19,3 +19,8 @@ secondLi.insertAdjacentElement('afterend', newLi)
 //true makes it a deep clone
 const clone = newLi.cloneNode(true);
 list.append(clone)
+
+//remove is not supported by IE 
+list.remove();
+//therefore use parentElement.removeChild
+list.parentElement.removeChild(list);
